@@ -21,19 +21,21 @@
                 <h3>{{ appTitle }}</h3>
                 
                 <div class="all-todos">
-                    <div 
-                        v-for="toDo of listToDo" 
-                        class="single-todo" 
-                        :class="{ done : toDo.done }"
-                        @click="toDo.done = !toDo.done">
-                        <p>{{ toDo.title }}</p>
-                    </div>
+                    <template v-if="listToDo.length">
+                        <div 
+                            v-for="toDo of listToDo" 
+                            class="single-todo" 
+                            :class="{ done : toDo.done }"
+                            @click="toDo.done = !toDo.done">
+                            <p>{{ toDo.title }}</p>
+                        </div>
+                    </template>
                 </div>
 
-                <button class="clear">Limpar tudo</button>
+                <button class="clear" @click="clearToDo()">Limpar tudo</button>
 
-                <input type="text" placeholder="Escreva uma nova tarefa...">
-                <button class="add">Adicionar</button>
+                <input type="text" placeholder="Escreva uma nova tarefa..." v-model="toDo.title">
+                <button class="add" @click="addToDo()">Adicionar</button>
 
                 <div class="instructions">
                     Instruções:
