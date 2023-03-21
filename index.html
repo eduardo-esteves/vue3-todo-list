@@ -21,7 +21,7 @@
                 <h3>{{ appTitle }}</h3>
                 
                 <div class="all-todos">
-                    <template v-if="listToDo.length">
+                    <template v-if="listToDo.length > 0">
                         <div 
                             v-for="toDo of listToDo" 
                             class="single-todo" 
@@ -32,7 +32,7 @@
                     </template>
                 </div>
 
-                <button class="clear" @click="clearToDo()">Limpar tudo</button>
+                <button class="clear" @click="clearToDo()" v-if="listToDo.length">Limpar tudo</button>
 
                 <input type="text" placeholder="Escreva uma nova tarefa..." v-model="toDo.title">
                 <button class="add" @click="addToDo()">Adicionar</button>
