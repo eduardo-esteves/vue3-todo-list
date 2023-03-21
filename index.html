@@ -21,16 +21,13 @@
                 <h3>{{ appTitle }}</h3>
                 
                 <div class="all-todos">
-                    <div class="single-todo done">
-                        <p>Aprender HTML, CSS e Javascript</p>
+                    <div 
+                        v-for="toDo of listToDo" 
+                        class="single-todo" 
+                        :class="{ done : toDo.done }"
+                        @click="toDo.done = !toDo.done">
+                        <p>{{ toDo.title }}</p>
                     </div>
-                    <div class="single-todo done">
-                        <p>Aprender o básico de Vue JS</p>
-                    </div>
-                    <div class="single-todo">
-                        <p>Completar o desafio de Vue JS com excelência</p>
-                    </div>
-
                 </div>
 
                 <button class="clear">Limpar tudo</button>
