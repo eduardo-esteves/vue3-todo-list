@@ -1,22 +1,20 @@
-const listToDo = [
-    {
-        title: 'Aprender HTML, CSS e Javascript',
-        done: false
-    },
-    {
-        title: 'Completar o desafio de Vue JS com excelência',
-        done: true
-    }
-]
-
 const toDoList = {
     data() {
         return {
             appTitle: 'Lista de Tarefas',
-            listToDo
+            listToDo: [],
+            toDo: {}
         }
     },
-    methods: {}
+    methods: {
+        addToDo() {
+            this.toDo.title && this.listToDo.push(this.toDo)
+            this.toDo = {}
+        },
+        clearToDo() {
+            this.listToDo = []
+        }
+    }
 }
 
 Vue.createApp(toDoList).mount('#app');
