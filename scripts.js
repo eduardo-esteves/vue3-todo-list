@@ -1,3 +1,5 @@
+const { createApp } = Vue
+
 const toDoList = {
     data() {
         return {
@@ -30,4 +32,4 @@ const toDoList = {
     }
 }
 
-Vue.createApp(toDoList).mount('#app');
+createApp(toDoList).mount('#app')
